@@ -8,13 +8,13 @@
   <style>
     :root{--blue:#0369a1;--blue2:#0284c7;--green:#059669;--bg:#f8fafc;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--white:#fff}
     *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(#f0f9ff,#f8fafc);color:var(--text)}
-    button,input,select{font:inherit}.app{width:min(100% - 24px,620px);margin:0 auto;padding:14px 0 40px}.hero{background:var(--blue);color:#fff;border-radius:20px;padding:18px;box-shadow:0 8px 25px #0369a126}.hero h1{font-size:21px;margin:0}.hero p{font-size:12px;color:#bae6fd;margin:5px 0 0}.tabs{display:grid;grid-template-columns:1fr 1fr;background:#fff;padding:5px;border-radius:14px;margin:12px 0;box-shadow:0 4px 16px #0f172a0d}.tab{border:0;background:transparent;color:var(--muted);padding:11px 6px;border-radius:10px;font-weight:650;cursor:pointer}.tab.active.trip{background:var(--blue2);color:#fff}.tab.active.month{background:var(--green);color:#fff}.pane{display:none}.pane.active{display:block}.card,.result{background:#fff;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 4px 18px #0f172a0d}.station-grid{display:grid;grid-template-columns:1fr 44px 1fr;gap:9px;align-items:end}.swap{height:39px;width:39px;border:1px solid var(--line);background:#fff;border-radius:50%;cursor:pointer;font-size:20px}.label{display:block;font-size:11px;color:var(--muted);margin:0 0 5px}.control{width:100%;height:40px;border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:0 10px;outline:none}.control:focus{border-color:#38bdf8;box-shadow:0 0 0 3px #38bdf833}.station .control+.control{margin-top:7px}.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#f0f9ff;border-radius:12px;padding:10px 2px;margin-top:14px;text-align:center}.stats.four{grid-template-columns:repeat(4,1fr);background:#ecfdf5}.stat small{display:block;color:var(--muted);font-size:10px}.stat b{font-size:14px}.official{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #bae6fd;color:#0369a1;text-decoration:none;border-radius:11px;padding:10px;margin-top:12px;font-size:13px;font-weight:650}.hint{font-size:10px;color:#94a3b8;line-height:1.5;margin:7px 2px 0}.grid3,.grid2{display:grid;gap:9px;margin-top:12px}.grid3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:repeat(2,1fr)}.result{display:flex;gap:10px;background:#e0f2fe}.result.green{background:#d1fae5}.result .icon{font-size:21px}.result h2{font-size:20px;margin:0}.result p{font-size:13px;color:#475569;line-height:1.55;margin:5px 0 0}.notice{background:#fffbeb;color:#92400e;padding:10px;border-radius:11px;font-size:12px;margin-top:12px}.fare-row{display:grid;grid-template-columns:1fr auto 92px;gap:8px;align-items:center;background:#f0f9ff;padding:10px;border-radius:12px;margin-top:12px;font-size:13px}.section-title{font-size:14px;font-weight:700}.option{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border-radius:11px;padding:11px;margin-top:8px;font-size:13px}.option.best{background:#d1fae5}.muted{font-size:10px;color:#94a3b8;margin-left:7px}.foot{text-align:center;color:#94a3b8;font-size:10px;margin-top:12px}.warning{color:#b45309}.error{color:#b91c1c}@media(max-width:390px){.app{width:min(100% - 16px,620px)}.station-grid{grid-template-columns:1fr 36px 1fr;gap:6px}.swap{width:34px;height:34px}.control{font-size:12px;padding:0 6px}.grid3{gap:6px}}
+    button,input,select{font:inherit}.app{width:min(100% - 24px,620px);margin:0 auto;padding:14px 0 40px}.hero{background:var(--blue);color:#fff;border-radius:20px;padding:18px;box-shadow:0 8px 25px #0369a126}.hero h1{font-size:21px;margin:0}.hero p{font-size:12px;color:#bae6fd;margin:5px 0 0}.tabs{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;padding:5px;border-radius:14px;margin:12px 0;box-shadow:0 4px 16px #0f172a0d}.tab{border:0;background:transparent;color:var(--muted);padding:11px 6px;border-radius:10px;font-weight:650;cursor:pointer}.tab.active.trip{background:var(--blue2);color:#fff}.tab.active.month{background:var(--green);color:#fff}.tab.active.rolling{background:#047857;color:#fff}.pane{display:none}.pane.active{display:block}.card,.result{background:#fff;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 4px 18px #0f172a0d}.station-grid{display:grid;grid-template-columns:1fr 44px 1fr;gap:9px;align-items:end}.swap{height:39px;width:39px;border:1px solid var(--line);background:#fff;border-radius:50%;cursor:pointer;font-size:20px}.label{display:block;font-size:11px;color:var(--muted);margin:0 0 5px}.control{width:100%;height:40px;border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:0 10px;outline:none}.control:focus{border-color:#38bdf8;box-shadow:0 0 0 3px #38bdf833}.station .control+.control{margin-top:7px}.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#f0f9ff;border-radius:12px;padding:10px 2px;margin-top:14px;text-align:center}.stats.four{grid-template-columns:repeat(4,1fr);background:#ecfdf5}.stat small{display:block;color:var(--muted);font-size:10px}.stat b{font-size:14px}.official{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #bae6fd;color:#0369a1;text-decoration:none;border-radius:11px;padding:10px;margin-top:12px;font-size:13px;font-weight:650}.hint{font-size:10px;color:#94a3b8;line-height:1.5;margin:7px 2px 0}.grid3,.grid2{display:grid;gap:9px;margin-top:12px}.grid3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:repeat(2,1fr)}.result{display:flex;gap:10px;background:#e0f2fe}.result.green{background:#d1fae5}.result .icon{font-size:21px}.result h2{font-size:20px;margin:0}.result p{font-size:13px;color:#475569;line-height:1.55;margin:5px 0 0}.notice{background:#fffbeb;color:#92400e;padding:10px;border-radius:11px;font-size:12px;margin-top:12px}.fare-row{display:grid;grid-template-columns:1fr auto 92px;gap:8px;align-items:center;background:#f0f9ff;padding:10px;border-radius:12px;margin-top:12px;font-size:13px}.section-title{font-size:14px;font-weight:700}.option{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border-radius:11px;padding:11px;margin-top:8px;font-size:13px}.option.best{background:#d1fae5}.muted{font-size:10px;color:#94a3b8;margin-left:7px}.foot{text-align:center;color:#94a3b8;font-size:10px;margin-top:12px}.warning{color:#b45309}.error{color:#b91c1c}@media(max-width:390px){.app{width:min(100% - 16px,620px)}.station-grid{grid-template-columns:1fr 36px 1fr;gap:6px}.swap{width:34px;height:34px}.control{font-size:12px;padding:0 6px}.grid3{gap:6px}}
   </style>
 </head>
 <body>
 <main class="app">
   <header class="hero"><h1>🚇 上海地铁次卡助手</h1><p>单次出行选择 + 每月购买规划 · GitHub Pages 版</p></header>
-  <nav class="tabs"><button class="tab trip active" data-tab="trip">这次怎么刷</button><button class="tab month" data-tab="month">本月买哪张</button></nav>
+  <nav class="tabs"><button class="tab trip active" data-tab="trip">这次怎么刷</button><button class="tab month" data-tab="month">本月买哪张</button><button class="tab rolling" data-tab="rolling">未来30天</button></nav>
 
   <section id="trip" class="pane active">
     <div class="card">
@@ -45,6 +45,39 @@
     <div id="monthResult" class="result"><div class="icon">✓</div><div><h2>正在计算</h2><p></p></div></div>
     <div class="card"><div class="section-title">全部方案</div><div id="options"></div></div>
   </section>
+
+
+  <section id="rolling" class="pane">
+    <div class="card">
+      <div class="section-title">📅 选择计划激活日期 <span id="rollingTodayBadge" style="float:right;background:#d1fae5;color:#047857;border-radius:999px;padding:3px 8px;font-size:10px">今天</span></div>
+      <input id="rollingStart" class="control" type="date" />
+      <button id="rollingReset" style="display:none;border:0;background:none;color:#047857;font-size:12px;font-weight:650;padding:8px 0 0;cursor:pointer">恢复到今天</button>
+      <div class="stats" style="grid-template-columns:repeat(2,1fr);background:#ecfdf5">
+        <div class="stat"><small>激活日</small><b id="rollingToday">--</b></div>
+        <div class="stat"><small>有效期末日</small><b id="rollingEnd">--</b></div>
+      </div>
+      <div style="text-align:center;color:#047857;font-size:10px;margin-top:7px">激活当日 + 之后30个自然日，共31个自然日</div>
+      <div class="stats four">
+        <div class="stat"><small>工作日</small><b id="rollingWorkdays">--</b></div>
+        <div class="stat"><small>公共假期</small><b id="rollingHolidays">--</b></div>
+        <div class="stat"><small>调休上班</small><b id="rollingAdjusted">--</b></div>
+        <div class="stat"><small>预计到岗</small><b id="rollingActual">--</b></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="grid2">
+        <div><label class="label">每周到岗天数</label><input id="rollingOfficeWeek" class="control" type="number" min="0" max="5" value="5"></div>
+        <div><label class="label">有效期内预计请假</label><input id="rollingLeave" class="control" type="number" min="0" value="0"></div>
+        <div><label class="label">每个到岗日乘车次数</label><input id="rollingDaily" class="control" type="number" min="0" value="2"></div>
+        <div><label class="label">其他预计乘车次数</label><input id="rollingExtra" class="control" type="number" min="0" value="0"></div>
+      </div>
+      <div class="fare-row"><span>普通单程票价</span><span>¥</span><input id="rollingFare" class="control" type="number" min="0" value="7"></div>
+      <a class="official" href="https://metroplatform.tenchii.com/web/fare-query/h5/index" target="_blank" rel="noopener noreferrer">↗ 核对上海地铁官方票价</a>
+    </div>
+    <div id="rollingResult" class="result"><div class="icon">✓</div><div><div class="muted" id="rollingRideSummary"></div><h2>正在计算</h2><p></p><p id="rollingFinish" style="font-weight:650;color:#065f46"></p></div></div>
+    <div class="card"><div class="section-title">方案成本排序</div><div id="rollingOptions"></div></div>
+    <div class="notice"><b>计算原则：</b>选择日期视为计划激活日。有效期覆盖激活当日及之后30个自然日，共31天；只在预计实际到岗日扣通勤次数，周末、公共假期和请假日不扣通勤次数。</div>
+  </section>
   <footer class="foot">纯静态网页 · 可直接部署至 GitHub Pages</footer>
 </main>
 <script>
@@ -72,16 +105,54 @@ const LINE_TEXT={
 "浦江线":"沈杜公路|三鲁公路|闵瑞路|浦航路|东城一路|汇臻路"};
 const METRO=Object.fromEntries(Object.entries(LINE_TEXT).map(([k,v])=>[k,v.split('|')]));
 const HOLIDAYS={1:{off:1,work:1,name:'元旦'},2:{off:6,work:1,name:'春节'},3:{off:0,work:0,name:'无国家法定假期'},4:{off:1,work:0,name:'清明节'},5:{off:3,work:1,name:'劳动节'},6:{off:1,work:0,name:'端午节'},7:{off:0,work:0,name:'无国家法定假期'},8:{off:0,work:0,name:'无国家法定假期'},9:{off:1,work:1,name:'中秋节'},10:{off:5,work:1,name:'国庆节'},11:{off:0,work:0,name:'无国家法定假期'},12:{off:0,work:0,name:'无国家法定假期'}};
+const ROLLING_HOLIDAYS={'2027-01-01':'元旦','2027-01-02':'元旦','2027-01-03':'元旦','2027-02-05':'春节','2027-02-06':'春节','2027-02-07':'春节','2027-02-08':'春节','2027-02-09':'春节','2027-02-10':'春节','2027-02-11':'春节','2027-02-12':'春节','2027-02-13':'春节'};
+const ROLLING_WORKDAYS=new Set(['2027-01-31','2027-02-14']);
+const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const dateLabel=d=>`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+function parseLocalDate(v){const [y,m,d]=v.split('-').map(Number);return new Date(y,m-1,d)}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
+function rollingIsWorkday(d){const k=dateKey(d),w=d.getDay();if(ROLLING_WORKDAYS.has(k))return true;if(ROLLING_HOLIDAYS[k])return false;return w!==0&&w!==6}
 const $=id=>document.getElementById(id); const num=id=>Math.max(0,Number($(id).value)||0);
 function fareByDistance(k){if(k<=4)return 3;if(k<=8)return 4;if(k<=12)return 5;if(k<=16)return 6;if(k<=23)return 7;if(k<=30)return 8;if(k<=40)return 9;if(k<=50)return 10;return 10+Math.ceil((k-50)/15)}
 function shortestStops(a,b){if(a===b)return 0;const g={};Object.values(METRO).forEach(s=>s.forEach((x,i)=>{g[x]??=new Set();if(i)g[x].add(s[i-1]);if(i<s.length-1)g[x].add(s[i+1])}));const q=[[a,0]],seen=new Set([a]);while(q.length){const[x,d]=q.shift();for(const n of g[x]||[]){if(n===b)return d+1;if(!seen.has(n)){seen.add(n);q.push([n,d+1])}}}return null}
 function weekdayCount(y,m){let n=0;for(let d=1;d<=new Date(y,m,0).getDate();d++){const w=new Date(y,m-1,d).getDay();if(w!==0&&w!==6)n++}return n}
 function options(el,arr,selected){el.innerHTML=arr.map((x,i)=>`<option value="${i}" ${x===selected?'selected':''}>${x}</option>`).join('')}
 function fillStations(lineEl,stationEl,preferred){const line=lineEl.options[lineEl.selectedIndex].text;options(stationEl,METRO[line],preferred)}
-function init(){const lines=Object.keys(METRO);options($('fromLine'),lines,'1号线');options($('toLine'),lines,'2号线');fillStations($('fromLine'),$('fromStation'),'莘庄');fillStations($('toLine'),$('toStation'),'人民广场');$('pass').innerHTML=PASSES.map((p,i)=>`<option value="${i}" ${i===1?'selected':''}>${p.trips}次卡 · ¥${p.price} · ¥${(p.price/p.trips).toFixed(2)}/次</option>`).join('');$('left').value=45;const months=[{y:2026,m:12},...Array.from({length:12},(_,i)=>({y:2027,m:i+1}))];$('monthSelect').innerHTML=months.map((x,i)=>`<option value="${i}" data-y="${x.y}" data-m="${x.m}">${x.y}年${x.m}月</option>`).join('');bind();calcTrip();calcMonth()}
-function bind(){document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.pane').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.tab).classList.add('active')});$('fromLine').onchange=()=>{fillStations($('fromLine'),$('fromStation'));calcTrip()};$('toLine').onchange=()=>{fillStations($('toLine'),$('toStation'));calcTrip()};$('fromStation').onchange=$('toStation').onchange=calcTrip;$('swap').onclick=()=>{const fl=$('fromLine').value,fs=$('fromStation').value;$('fromLine').value=$('toLine').value;fillStations($('fromLine'),$('fromStation'),$('toStation').value);$('toLine').value=fl;fillStations($('toLine'),$('toStation'),fs);calcTrip()};$('pass').onchange=()=>{$('left').value=PASSES[$('pass').value].trips;calcTrip()};['left','days','daily'].forEach(id=>$(id).oninput=calcTrip);['monthSelect','officeWeek','leave','commuteDaily','extra','singleFare'].forEach(id=>$(id).oninput=$(id).onchange=calcMonth)}
+function init(){const lines=Object.keys(METRO);options($('fromLine'),lines,'1号线');options($('toLine'),lines,'2号线');fillStations($('fromLine'),$('fromStation'),'莘庄');fillStations($('toLine'),$('toStation'),'人民广场');$('pass').innerHTML=PASSES.map((p,i)=>`<option value="${i}" ${i===1?'selected':''}>${p.trips}次卡 · ¥${p.price} · ¥${(p.price/p.trips).toFixed(2)}/次</option>`).join('');$('left').value=45;const months=[{y:2026,m:12},...Array.from({length:12},(_,i)=>({y:2027,m:i+1}))];$('monthSelect').innerHTML=months.map((x,i)=>`<option value="${i}" data-y="${x.y}" data-m="${x.m}">${x.y}年${x.m}月</option>`).join('');$('rollingStart').value=dateKey(new Date());bind();calcTrip();calcMonth();calcRolling()}
+function bind(){document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.pane').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.tab).classList.add('active')});$('fromLine').onchange=()=>{fillStations($('fromLine'),$('fromStation'));calcTrip()};$('toLine').onchange=()=>{fillStations($('toLine'),$('toStation'));calcTrip()};$('fromStation').onchange=$('toStation').onchange=calcTrip;$('swap').onclick=()=>{const fl=$('fromLine').value,fs=$('fromStation').value;$('fromLine').value=$('toLine').value;fillStations($('fromLine'),$('fromStation'),$('toStation').value);$('toLine').value=fl;fillStations($('toLine'),$('toStation'),fs);calcTrip()};$('pass').onchange=()=>{$('left').value=PASSES[$('pass').value].trips;calcTrip()};['left','days','daily'].forEach(id=>$(id).oninput=calcTrip);['monthSelect','officeWeek','leave','commuteDaily','extra','singleFare'].forEach(id=>$(id).oninput=$(id).onchange=calcMonth);['rollingOfficeWeek','rollingLeave','rollingDaily','rollingExtra','rollingFare'].forEach(id=>$(id).oninput=calcRolling);$('rollingStart').onchange=calcRolling;$('rollingReset').onclick=()=>{$('rollingStart').value=dateKey(new Date());calcRolling()}}
 function calcTrip(){const a=$('fromStation').options[$('fromStation').selectedIndex]?.text,b=$('toStation').options[$('toStation').selectedIndex]?.text,s=shortestStops(a,b),km=s==null?null:Number((s*1.35).toFixed(1)),f=km==null?null:fareByDistance(km),p=PASSES[$('pass').value],unit=p.price/p.trips,usable=Math.min(num('left'),num('days')*num('daily')),risk=Math.max(0,num('left')-usable),rec=!f?'请选择有效站点':!usable?'刷地铁卡':risk&&unit<=f*1.25?'优先用次卡':unit<f?'使用次卡':'刷地铁卡';$('stops').textContent=s==null?'--':`${s}站`;$('distance').textContent=km==null?'--':`${km}km`;$('fare').textContent=f==null?'--':`¥${f}`;const box=$('tripResult');box.classList.toggle('green',rec.includes('次卡'));box.querySelector('h2').textContent=rec;box.querySelector('p').textContent=`计算票价 ¥${f??'--'}；次卡单次 ¥${unit.toFixed(2)}；过期风险 ${risk} 次。`}
 function calcMonth(){const op=$('monthSelect').selectedOptions[0],y=+op.dataset.y,m=+op.dataset.m,h=y===2027?HOLIDAYS[m]:HOLIDAYS[12],base=weekdayCount(y,m),effective=base-h.off+h.work,office=Math.max(0,Math.floor(effective*Math.min(5,num('officeWeek'))/5-num('leave'))),rides=Math.ceil(office*num('commuteDaily')+num('extra')),price=num('singleFare'),raw=rides*price,card=raw>90?90+(raw-90)*.9:raw,opts=[{name:'不买次卡',cost:card,unused:0},...PASSES.map(p=>({name:`${p.trips}次卡`,cost:p.price+Math.max(0,rides-p.trips)*price,unused:Math.max(0,p.trips-rides)}))].sort((a,b)=>a.cost-b.cost),best=opts[0];$('weekdays').textContent=`${base}天`;$('holidayOff').textContent=`${h.off}天`;$('holidayWork').textContent=`${h.work}天`;$('effective').textContent=`${effective}天`;$('holidayName').textContent=`📅 ${h.name}`;const box=$('monthResult');box.classList.toggle('green',best.name!=='不买次卡');box.querySelector('h2').textContent=`推荐：${best.name}`;box.querySelector('p').textContent=`预计到岗 ${office} 天、乘车 ${rides} 次、支出 ¥${best.cost.toFixed(2)}。`;$('options').innerHTML=opts.map((o,i)=>`<div class="option ${i===0?'best':''}"><span><b>${o.name}</b><small class="muted">闲置${o.unused}次</small></span><b>¥${o.cost.toFixed(2)}</b></div>`).join('')}
+
+function calcRolling(){
+  const today=new Date(),startValue=$('rollingStart').value||dateKey(today),start=parseLocalDate(startValue),end=addDays(start,30),days=[];
+  let baseWork=0,holidayCount=0,adjusted=0;
+  for(let i=0;i<31;i++){
+    const d=addDays(start,i),k=dateKey(d),work=rollingIsWorkday(d);
+    if(ROLLING_HOLIDAYS[k])holidayCount++;
+    if(ROLLING_WORKDAYS.has(k))adjusted++;
+    if(work)baseWork++;
+    days.push({date:d,key:k,work});
+  }
+  const officeWeek=Math.min(5,num('rollingOfficeWeek'));
+  const leave=num('rollingLeave'),ridesPerDay=num('rollingDaily'),extra=num('rollingExtra'),fare=num('rollingFare');
+  const scheduled=Math.floor(baseWork*officeWeek/5),actual=Math.max(0,scheduled-leave),commute=Math.ceil(actual*ridesPerDay),rides=commute+extra;
+  const workDates=days.filter(x=>x.work).slice(0,actual),byMonth={};let remaining=commute;
+  workDates.forEach(x=>{const mk=`${x.date.getFullYear()}-${x.date.getMonth()+1}`,n=Math.min(ridesPerDay,remaining);byMonth[mk]=(byMonth[mk]||0)+n;remaining-=n});
+  if(extra){const mk=`${start.getFullYear()}-${start.getMonth()+1}`;byMonth[mk]=(byMonth[mk]||0)+extra}
+  let cardCost=0;Object.values(byMonth).forEach(n=>{const amount=n*fare;cardCost+=amount>90?90+(amount-90)*.9:amount});
+  const options=[{name:'不买次卡',type:'card',trips:0,cost:cardCost,unused:0},...PASSES.map(p=>({name:`${p.trips}次卡`,type:'pass',trips:p.trips,cost:p.price+Math.max(0,rides-p.trips)*fare,unused:Math.max(0,p.trips-rides)}))].sort((a,b)=>a.cost-b.cost),best=options[0];
+  let finish=null;
+  if(best.type==='pass'){
+    let left=best.trips,leaveLeft=leave;
+    for(const x of days){if(!x.work)continue;if(leaveLeft>0){leaveLeft--;continue}left-=ridesPerDay;if(left<=0){finish=x.date;break}}
+  }
+  const isToday=startValue===dateKey(today);
+  $('rollingTodayBadge').style.display=isToday?'inline':'none';$('rollingReset').style.display=isToday?'none':'block';
+  $('rollingToday').textContent=dateLabel(start);$('rollingEnd').textContent=dateLabel(end);$('rollingWorkdays').textContent=`${baseWork}天`;$('rollingHolidays').textContent=`${holidayCount}天`;$('rollingAdjusted').textContent=`${adjusted}天`;$('rollingActual').textContent=`${actual}天`;
+  const box=$('rollingResult');box.classList.toggle('green',best.type==='pass');$('rollingRideSummary').textContent=`预计有效期内乘车 ${rides} 次（通勤 ${commute} + 其他 ${extra}）`;box.querySelector('h2').textContent=`推荐：${best.name}`;box.querySelector('p').textContent=`预计总支出 ¥${best.cost.toFixed(2)}。${best.unused?`有效期末预计闲置 ${best.unused} 次。`:'预计不会因次数不足产生闲置。'}`;$('rollingFinish').textContent=best.type==='pass'?(finish?`按工作日使用，预计 ${dateLabel(finish)} 用完。`:'按当前出行计划，31天有效期内不会用完。'):'';
+  $('rollingOptions').innerHTML=options.map((o,i)=>`<div class="option ${i===0?'best':''}"><span><b>${o.name}</b><small class="muted">${o.type==='pass'?`套餐${o.trips}次 · 预计闲置${o.unused}次`:'按实际乘车付费，满90元优惠按自然月重置'}</small></span><b>¥${o.cost.toFixed(2)}</b></div>`).join('');
+}
+
 init();
 </script>
 </body>
