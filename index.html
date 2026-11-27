@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="上海地铁次卡使用与购买建议工具" />
+  <title>上海地铁次卡助手</title>
+  <style>
+    :root{--blue:#0369a1;--blue2:#0284c7;--green:#059669;--bg:#f8fafc;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--white:#fff}
+    *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(#f0f9ff,#f8fafc);color:var(--text)}
+    button,input,select{font:inherit}.app{width:min(100% - 24px,620px);margin:0 auto;padding:14px 0 40px}.hero{background:var(--blue);color:#fff;border-radius:20px;padding:18px;box-shadow:0 8px 25px #0369a126}.hero h1{font-size:21px;margin:0}.hero p{font-size:12px;color:#bae6fd;margin:5px 0 0}.tabs{display:grid;grid-template-columns:1fr 1fr;background:#fff;padding:5px;border-radius:14px;margin:12px 0;box-shadow:0 4px 16px #0f172a0d}.tab{border:0;background:transparent;color:var(--muted);padding:11px 6px;border-radius:10px;font-weight:650;cursor:pointer}.tab.active.trip{background:var(--blue2);color:#fff}.tab.active.month{background:var(--green);color:#fff}.pane{display:none}.pane.active{display:block}.card,.result{background:#fff;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 4px 18px #0f172a0d}.station-grid{display:grid;grid-template-columns:1fr 44px 1fr;gap:9px;align-items:end}.swap{height:39px;width:39px;border:1px solid var(--line);background:#fff;border-radius:50%;cursor:pointer;font-size:20px}.label{display:block;font-size:11px;color:var(--muted);margin:0 0 5px}.control{width:100%;height:40px;border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:0 10px;outline:none}.control:focus{border-color:#38bdf8;box-shadow:0 0 0 3px #38bdf833}.station .control+.control{margin-top:7px}.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#f0f9ff;border-radius:12px;padding:10px 2px;margin-top:14px;text-align:center}.stats.four{grid-template-columns:repeat(4,1fr);background:#ecfdf5}.stat small{display:block;color:var(--muted);font-size:10px}.stat b{font-size:14px}.official{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #bae6fd;color:#0369a1;text-decoration:none;border-radius:11px;padding:10px;margin-top:12px;font-size:13px;font-weight:650}.hint{font-size:10px;color:#94a3b8;line-height:1.5;margin:7px 2px 0}.grid3,.grid2{display:grid;gap:9px;margin-top:12px}.grid3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:repeat(2,1fr)}.result{display:flex;gap:10px;background:#e0f2fe}.result.green{background:#d1fae5}.result .icon{font-size:21px}.result h2{font-size:20px;margin:0}.result p{font-size:13px;color:#475569;line-height:1.55;margin:5px 0 0}.notice{background:#fffbeb;color:#92400e;padding:10px;border-radius:11px;font-size:12px;margin-top:12px}.fare-row{display:grid;grid-template-columns:1fr auto 92px;gap:8px;align-items:center;background:#f0f9ff;padding:10px;border-radius:12px;margin-top:12px;font-size:13px}.section-title{font-size:14px;font-weight:700}.option{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border-radius:11px;padding:11px;margin-top:8px;font-size:13px}.option.best{background:#d1fae5}.muted{font-size:10px;color:#94a3b8;margin-left:7px}.foot{text-align:center;color:#94a3b8;font-size:10px;margin-top:12px}.warning{color:#b45309}.error{color:#b91c1c}@media(max-width:390px){.app{width:min(100% - 16px,620px)}.station-grid{grid-template-columns:1fr 36px 1fr;gap:6px}.swap{width:34px;height:34px}.control{font-size:12px;padding:0 6px}.grid3{gap:6px}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header class="hero"><h1>🚇 上海地铁次卡助手</h1><p>单次出行选择 + 每月购买规划 · GitHub Pages 版</p></header>
+  <nav class="tabs"><button class="tab trip active" data-tab="trip">这次怎么刷</button><button class="tab month" data-tab="month">本月买哪张</button></nav>
+
+  <section id="trip" class="pane active">
+    <div class="card">
+      <div class="station-grid">
+        <div class="station"><label class="label">起点</label><select id="fromLine" class="control"></select><select id="fromStation" class="control"></select></div>
+        <button id="swap" class="swap" aria-label="交换起终点">⇄</button>
+        <div class="station"><label class="label">终点</label><select id="toLine" class="control"></select><select id="toStation" class="control"></select></div>
+      </div>
+      <div class="stats"><div class="stat"><small>经停</small><b id="stops">--</b></div><div class="stat"><small>估算里程</small><b id="distance">--</b></div><div class="stat"><small>计算票价</small><b id="fare">--</b></div></div>
+      <a class="official" href="https://metroplatform.tenchii.com/web/fare-query/h5/index" target="_blank" rel="noopener noreferrer">↗ 官方票价查询（核对）</a>
+      <p class="hint">主推荐沿用原计算方法：最少经停站数 × 平均1.35 km，再套用票价阶梯。临界价位请以官方查询为准。</p>
+    </div>
+    <div class="card">
+      <label class="label">我持有的次卡</label><select id="pass" class="control"></select>
+      <div class="grid3"><div><label class="label">剩余次数</label><input id="left" class="control" type="number" min="0"></div><div><label class="label">剩余天数</label><input id="days" class="control" type="number" min="0" value="30"></div><div><label class="label">每日乘坐</label><input id="daily" class="control" type="number" min="0" value="2"></div></div>
+    </div>
+    <div id="tripResult" class="result"><div class="icon">✓</div><div><h2>正在计算</h2><p></p></div></div>
+  </section>
+
+  <section id="month" class="pane">
+    <div class="card">
+      <label class="label">查看月份</label><select id="monthSelect" class="control"></select>
+      <div class="stats four"><div class="stat"><small>平日</small><b id="weekdays">--</b></div><div class="stat"><small>假期</small><b id="holidayOff">--</b></div><div class="stat"><small>调休</small><b id="holidayWork">--</b></div><div class="stat"><small>应工作</small><b id="effective">--</b></div></div>
+      <div id="holidayName" class="notice"></div>
+      <div class="grid2"><div><label class="label">每周到岗天数</label><input id="officeWeek" class="control" type="number" min="0" max="5" value="5"></div><div><label class="label">预计请假天数</label><input id="leave" class="control" type="number" min="0" value="0"></div><div><label class="label">到岗日乘车次数</label><input id="commuteDaily" class="control" type="number" min="0" value="2"></div><div><label class="label">其他乘车次数</label><input id="extra" class="control" type="number" min="0" value="0"></div></div>
+      <div class="fare-row"><span>单程票价</span><span>¥</span><input id="singleFare" class="control" type="number" min="0" value="7"></div>
+    </div>
+    <div id="monthResult" class="result"><div class="icon">✓</div><div><h2>正在计算</h2><p></p></div></div>
+    <div class="card"><div class="section-title">全部方案</div><div id="options"></div></div>
+  </section>
+  <footer class="foot">纯静态网页 · 可直接部署至 GitHub Pages</footer>
+</main>
+<script>
+const PASSES=[{trips:35,price:190},{trips:45,price:210},{trips:60,price:270},{trips:90,price:390}];
+const LINE_TEXT={
+"1号线":"莘庄|外环路|莲花路|锦江乐园|上海南站|漕宝路|上海体育馆|徐家汇|衡山路|常熟路|陕西南路|一大会址·黄陂南路|人民广场|新闸路|汉中路|上海火车站|中山北路|延长路|上海马戏城|汶水路|彭浦新村|共康路|通河新村|呼兰路|共富新村|宝安公路|友谊西路|富锦路",
+"2号线":"蟠祥路·国家会计学院|国家会展中心|虹桥火车站|虹桥2号航站楼|淞虹路|北新泾|威宁路|娄山关路|中山公园|江苏路|静安寺|南京西路|人民广场|南京东路|陆家嘴|浦东南路|世纪大道|上海科技馆|世纪公园|龙阳路|张江高科|金科路|广兰路|唐镇|创新中路|华夏东路|川沙|凌空路|远东大道|海天三路|浦东1号2号航站楼",
+"3号线":"上海南站|石龙路|龙漕路|漕溪路|宜山路|虹桥路|延安西路|中山公园|金沙江路|曹杨路|镇坪路|中潭路|上海火车站|宝山路|东宝兴路|虹口足球场|赤峰路|大柏树|江湾镇|殷高西路|长江南路|淞发路|张华浜|淞滨路|水产路|宝杨路|友谊路|铁力路|江杨北路",
+"4号线":"宜山路|虹桥路|延安西路|中山公园|金沙江路|曹杨路|镇坪路|中潭路|上海火车站|宝山路|海伦路|临平路|大连路|杨树浦路|浦东大道|世纪大道|向城路|蓝村路|塘桥|南浦大桥|西藏南路|鲁班路|大木桥路|东安路|上海体育场|上海体育馆",
+"5号线（奉贤）":"莘庄|春申路|银都路|颛桥|北桥|剑川路|东川路|江川路|西渡|萧塘|奉浦大道|环城东路|望园路|金海湖|奉贤新城",
+"5号线（闵行）":"莘庄|春申路|银都路|颛桥|北桥|剑川路|东川路|金平路|华宁路|文井路|闵行开发区",
+"6号线":"东方体育中心|灵岩南路|上南路|华夏西路|高青路|东明路|高科西路|临沂新村|上海儿童医学中心|蓝村路|浦电路|世纪大道|源深体育中心|民生路|北洋泾路|德平路|云山路|金桥路|博兴路|五莲路|巨峰路|东靖路|五洲大道|洲海路|外高桥保税区南|航津路|外高桥保税区北|港城路",
+"7号线":"美兰湖|罗南新村|潘广路|刘行|顾村公园|祁华路|上海大学|南陈路|上大路|场中路|大场镇|行知路|大华三路|新村路|岚皋路|镇坪路|长寿路|昌平路|静安寺|常熟路|肇嘉浜路|东安路|龙华中路|后滩|长清路|耀华路|云台路|高科西路|杨高南路|锦绣路|芳华路|龙阳路|花木路",
+"8号线":"沈杜公路|联航路|江月路|浦江镇|芦恒路|凌兆新村|东方体育中心|杨思|成山路|耀华路|中华艺术宫|西藏南路|陆家浜路|老西门|大世界|人民广场|曲阜路|中兴路|西藏北路|虹口足球场|曲阳路|四平路|鞍山新村|江浦路|黄兴路|延吉中路|黄兴公园|翔殷路|嫩江路|市光路",
+"9号线":"上海松江站|醉白池|松江体育中心|松江新城|松江大学城|洞泾|佘山|泗泾|九亭|中春路|七宝|星中路|合川路|漕河泾开发区|桂林路|宜山路|徐家汇|肇嘉浜路|嘉善路|打浦桥|马当路|陆家浜路|小南门|商城路|世纪大道|杨高中路|芳甸路|蓝天路|台儿庄路|金桥|金吉路|金海路|顾唐路|民雷路|曹路",
+"10号线":"航中路|紫藤路|龙柏新村|龙溪路|水城路|伊犁路|宋园路|虹桥路|交通大学|上海图书馆|陕西南路|一大会址·新天地|老西门|豫园|南京东路|天潼路|四川北路|海伦路|邮电新村|四平路|同济大学|国权路|五角场|江湾体育场|三门路|殷高东路|新江湾城|国帆路|双江路|高桥西|高桥|港城路|基隆路",
+"11号线":"花桥|光明路|兆丰路|安亭|上海汽车城|昌吉东路|上海赛车场|嘉定新城|马陆|陈翔公路|南翔|桃浦新村|武威路|祁连山路|李子园|上海西站|真如|枫桥路|曹杨路|隆德路|江苏路|交通大学|徐家汇|上海游泳馆|龙华|云锦路|龙耀路|东方体育中心|三林|三林东|浦三路|康恒路|御桥|罗山路|秀沿路|康新公路|迪士尼",
+"12号线":"七莘路|虹莘路|顾戴路|东兰路|虹梅路|虹漕路|桂林公园|漕宝路|龙漕路|龙华|龙华中路|大木桥路|嘉善路|陕西南路|南京西路|汉中路|曲阜路|天潼路|国际客运中心|提篮桥|大连路|江浦公园|宁国路|隆昌路|爱国路|复兴岛|东陆路|巨峰路|杨高北路|金京路|申江路|金海路",
+"13号线":"金运路|金沙江西路|丰庄|祁连山南路|真北路|大渡河路|金沙江路|隆德路|武宁路|长寿路|江宁路|汉中路|自然博物馆|南京西路|淮海中路|一大会址·新天地|马当路|世博会博物馆|世博大道|长清路|成山路|东明路|华鹏路|下南路|北蔡|陈春路|莲溪路|华夏中路|中科路|学林路|张江路",
+"14号线":"封浜|乐秀路|临洮路|嘉怡路|定边路|真新新村|真光路|铜川路|真如|中宁路|曹杨路|武宁路|武定路|静安寺|一大会址·黄陂南路|大世界|豫园|陆家嘴|浦东南路|浦东大道|源深路|昌邑路|歇浦路|云山路|蓝天路|黄杨路|云顺路|浦东足球场|金粤路|桂桥路",
+"15号线":"紫竹高新区|永德路|元江路|双柏路|曙建路|景西路|虹梅南路|景洪路|朱梅路|罗秀路|华东理工大学|上海南站|桂林公园|桂林路|吴中路|姚虹路|红宝石路|娄山关路|长风公园|大渡河路|梅岭北路|铜川路|上海西站|武威东路|古浪路|祁安路|南大路|丰翔路|锦秋路|顾村公园",
+"16号线":"龙阳路|华夏中路|罗山路|周浦东|鹤沙航城|航头东|新场|野生动物园|惠南|惠南东|书院|临港大道|滴水湖",
+"17号线":"虹桥火车站|国家会展中心|蟠龙路|徐盈路|徐泾北城|嘉松中路|赵巷|汇金路|青浦新城|漕盈路|淀山湖大道|朱家角|东方绿舟|西岑",
+"18号线":"航头|下沙|鹤涛路|沈梅路|繁荣路|周浦|康桥|御桥|莲溪路|北中路|芳芯路|龙阳路|迎春路|杨高中路|民生路|昌邑路|丹阳路|平凉路|江浦公园|抚顺路|国权路|复旦大学|上海财经大学|殷高路|长江西路|爱辉路|康文路",
+"浦江线":"沈杜公路|三鲁公路|闵瑞路|浦航路|东城一路|汇臻路"};
+const METRO=Object.fromEntries(Object.entries(LINE_TEXT).map(([k,v])=>[k,v.split('|')]));
+const HOLIDAYS={1:{off:1,work:1,name:'元旦'},2:{off:6,work:1,name:'春节'},3:{off:0,work:0,name:'无国家法定假期'},4:{off:1,work:0,name:'清明节'},5:{off:3,work:1,name:'劳动节'},6:{off:1,work:0,name:'端午节'},7:{off:0,work:0,name:'无国家法定假期'},8:{off:0,work:0,name:'无国家法定假期'},9:{off:1,work:1,name:'中秋节'},10:{off:5,work:1,name:'国庆节'},11:{off:0,work:0,name:'无国家法定假期'},12:{off:0,work:0,name:'无国家法定假期'}};
+const $=id=>document.getElementById(id); const num=id=>Math.max(0,Number($(id).value)||0);
+function fareByDistance(k){if(k<=4)return 3;if(k<=8)return 4;if(k<=12)return 5;if(k<=16)return 6;if(k<=23)return 7;if(k<=30)return 8;if(k<=40)return 9;if(k<=50)return 10;return 10+Math.ceil((k-50)/15)}
+function shortestStops(a,b){if(a===b)return 0;const g={};Object.values(METRO).forEach(s=>s.forEach((x,i)=>{g[x]??=new Set();if(i)g[x].add(s[i-1]);if(i<s.length-1)g[x].add(s[i+1])}));const q=[[a,0]],seen=new Set([a]);while(q.length){const[x,d]=q.shift();for(const n of g[x]||[]){if(n===b)return d+1;if(!seen.has(n)){seen.add(n);q.push([n,d+1])}}}return null}
+function weekdayCount(y,m){let n=0;for(let d=1;d<=new Date(y,m,0).getDate();d++){const w=new Date(y,m-1,d).getDay();if(w!==0&&w!==6)n++}return n}
+function options(el,arr,selected){el.innerHTML=arr.map((x,i)=>`<option value="${i}" ${x===selected?'selected':''}>${x}</option>`).join('')}
+function fillStations(lineEl,stationEl,preferred){const line=lineEl.options[lineEl.selectedIndex].text;options(stationEl,METRO[line],preferred)}
+function init(){const lines=Object.keys(METRO);options($('fromLine'),lines,'1号线');options($('toLine'),lines,'2号线');fillStations($('fromLine'),$('fromStation'),'莘庄');fillStations($('toLine'),$('toStation'),'人民广场');$('pass').innerHTML=PASSES.map((p,i)=>`<option value="${i}" ${i===1?'selected':''}>${p.trips}次卡 · ¥${p.price} · ¥${(p.price/p.trips).toFixed(2)}/次</option>`).join('');$('left').value=45;const months=[{y:2026,m:12},...Array.from({length:12},(_,i)=>({y:2027,m:i+1}))];$('monthSelect').innerHTML=months.map((x,i)=>`<option value="${i}" data-y="${x.y}" data-m="${x.m}">${x.y}年${x.m}月</option>`).join('');bind();calcTrip();calcMonth()}
+function bind(){document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab,.pane').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.tab).classList.add('active')});$('fromLine').onchange=()=>{fillStations($('fromLine'),$('fromStation'));calcTrip()};$('toLine').onchange=()=>{fillStations($('toLine'),$('toStation'));calcTrip()};$('fromStation').onchange=$('toStation').onchange=calcTrip;$('swap').onclick=()=>{const fl=$('fromLine').value,fs=$('fromStation').value;$('fromLine').value=$('toLine').value;fillStations($('fromLine'),$('fromStation'),$('toStation').value);$('toLine').value=fl;fillStations($('toLine'),$('toStation'),fs);calcTrip()};$('pass').onchange=()=>{$('left').value=PASSES[$('pass').value].trips;calcTrip()};['left','days','daily'].forEach(id=>$(id).oninput=calcTrip);['monthSelect','officeWeek','leave','commuteDaily','extra','singleFare'].forEach(id=>$(id).oninput=$(id).onchange=calcMonth)}
+function calcTrip(){const a=$('fromStation').options[$('fromStation').selectedIndex]?.text,b=$('toStation').options[$('toStation').selectedIndex]?.text,s=shortestStops(a,b),km=s==null?null:Number((s*1.35).toFixed(1)),f=km==null?null:fareByDistance(km),p=PASSES[$('pass').value],unit=p.price/p.trips,usable=Math.min(num('left'),num('days')*num('daily')),risk=Math.max(0,num('left')-usable),rec=!f?'请选择有效站点':!usable?'刷地铁卡':risk&&unit<=f*1.25?'优先用次卡':unit<f?'使用次卡':'刷地铁卡';$('stops').textContent=s==null?'--':`${s}站`;$('distance').textContent=km==null?'--':`${km}km`;$('fare').textContent=f==null?'--':`¥${f}`;const box=$('tripResult');box.classList.toggle('green',rec.includes('次卡'));box.querySelector('h2').textContent=rec;box.querySelector('p').textContent=`计算票价 ¥${f??'--'}；次卡单次 ¥${unit.toFixed(2)}；过期风险 ${risk} 次。`}
+function calcMonth(){const op=$('monthSelect').selectedOptions[0],y=+op.dataset.y,m=+op.dataset.m,h=y===2027?HOLIDAYS[m]:HOLIDAYS[12],base=weekdayCount(y,m),effective=base-h.off+h.work,office=Math.max(0,Math.floor(effective*Math.min(5,num('officeWeek'))/5-num('leave'))),rides=Math.ceil(office*num('commuteDaily')+num('extra')),price=num('singleFare'),raw=rides*price,card=raw>90?90+(raw-90)*.9:raw,opts=[{name:'不买次卡',cost:card,unused:0},...PASSES.map(p=>({name:`${p.trips}次卡`,cost:p.price+Math.max(0,rides-p.trips)*price,unused:Math.max(0,p.trips-rides)}))].sort((a,b)=>a.cost-b.cost),best=opts[0];$('weekdays').textContent=`${base}天`;$('holidayOff').textContent=`${h.off}天`;$('holidayWork').textContent=`${h.work}天`;$('effective').textContent=`${effective}天`;$('holidayName').textContent=`📅 ${h.name}`;const box=$('monthResult');box.classList.toggle('green',best.name!=='不买次卡');box.querySelector('h2').textContent=`推荐：${best.name}`;box.querySelector('p').textContent=`预计到岗 ${office} 天、乘车 ${rides} 次、支出 ¥${best.cost.toFixed(2)}。`;$('options').innerHTML=opts.map((o,i)=>`<div class="option ${i===0?'best':''}"><span><b>${o.name}</b><small class="muted">闲置${o.unused}次</small></span><b>¥${o.cost.toFixed(2)}</b></div>`).join('')}
+init();
+</script>
+</body>
+</html>
