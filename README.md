@@ -11,13 +11,6 @@ python -m http.server 8000
 
 然后打开 http://localhost:8000 。
 
-## GitHub Pages 部署
-1. 在 GitHub 新建一个公开仓库，例如 `shanghai-metro-pass`。
-2. 上传本目录中的 `index.html`、`.nojekyll` 和 `README.md`。
-3. 进入仓库 **Settings > Pages**。
-4. 在 **Build and deployment** 中选择 **Deploy from a branch**。
-5. Branch 选择 `main`，Folder 选择 `/ (root)`，点击 **Save**。
-6. 等待约 1-3 分钟，GitHub 会显示公开网址。
 
 ## 当前功能
 - 起点/终点按线路和车站选择
